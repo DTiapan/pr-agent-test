@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -20,6 +21,7 @@ public class SeleniumGridTest {
     public static void setUp() throws MalformedURLException {
         baseURL = "https://selenium.dev/";
         nodeURL = "http://localhost:4444/";
+        //some changes as pr
         driver = new RemoteWebDriver(new URL(nodeURL), new FirefoxOptions());
     }
 
@@ -32,6 +34,12 @@ public class SeleniumGridTest {
     public void sampleTest() {
         driver.get(baseURL);
 
-        driver.findElement(By.tagName("body")).getText();
+        WebElement ele = driver.findElement(By.tagName("body"));
+        if (ele.isDisplayed()) {
+            System.out.println("Displayed");
+        } else {
+            System.out.println("not displayed");
+        }
+
     }
 }

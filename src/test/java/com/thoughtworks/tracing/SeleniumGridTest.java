@@ -20,6 +20,7 @@ public class SeleniumGridTest {
     public static void setUp() throws MalformedURLException {
         baseURL = "https://selenium.dev/";
         nodeURL = "http://localhost:4444/";
+        //some changes as pr
         driver = new RemoteWebDriver(new URL(nodeURL), new FirefoxOptions());
     }
 
